@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>My First News Webscraper</title>
+  </head>
+  <body>
+    <h1 class="mainTitle">Simplified News Scrapings</h1>
+    <!-- here are the styles -->
+    <style>
+      .mainTitle {
+        display: flex;
+        justify-content: center;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .card {
+        display: flex;
+        border: 1px solid #ddd;
+        max-width: 500px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s;
+        background-color: teal;
+      }
+
+      .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 5);
+      }
+
+      .card-img-top {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      .card-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .card-text {
+        font-size: 1rem;
+        color: white;
+      }
+    </style>
+    <!-- Display headlines and images -->
+    <div class="container">
+      {% for headline, image, content in data %}
+      <div class="card">
+        <img class="card-img-top" src="{{ image }}" alt="News Image" />
+        <div class="card-body">
+          <h5 class="card-title">{{ headline }}</h5>
+          <p class="card-text">{{ content }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
